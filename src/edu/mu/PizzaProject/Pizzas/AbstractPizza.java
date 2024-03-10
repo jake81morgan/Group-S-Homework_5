@@ -19,8 +19,9 @@ public abstract class AbstractPizza {
 	/**
 	 * TODO: Constructor for AbstractPizza class
 	 */
-	public AbstractPizza() {
-
+	public AbstractPizza(double PriceWithoutToppings) {
+		this.priceWithoutToppings = PriceWithoutToppings;
+		this.totalPrice = PriceWithoutToppings;
 		toppingList = new ArrayList<Toppings>();
 
 	}
@@ -99,31 +100,32 @@ public abstract class AbstractPizza {
 	protected double addToppingsToPrice(double priceWithoutToppings) {
 		totalPrice = priceWithoutToppings;
 		for (Toppings toppings : toppingList) {
-			if (toppings.equals("BELL_PEPPER")) {
+			if (toppings.equals(Toppings.BELL_PEPPER)) {
 				totalPrice += 1.00;
 			}
-			if (toppings.equals("BLACK_OLIVE")) {
+			if (toppings.equals(Toppings.BLACK_OLIVE)) {
 				totalPrice += 1.25;
 			}
-			if (toppings.equals("TOMATO") || toppings.equals("MUSHROOM")) {
+			if (toppings.equals(Toppings.TOMATO)) {
 				totalPrice += 1.50;
 			}
-			if (toppings.equals("MUSHROOM")) {
+			if (toppings.equals(Toppings.MUSHROOM)) {
 				totalPrice += 1.50;
 			}
-			if (toppings.equals("CHEESE")) {
+			if (toppings.equals(Toppings.CHEESE)) {
 				totalPrice += 2.00;
 			}
-			if (toppings.equals("PINEAPPLE")) {
+
+			if (toppings.equals(Toppings.PINEAPPLE)) {
 				totalPrice += 2.50;
 			}
-			if (toppings.equals("PEPPERONI")) {
+			if (toppings.equals(Toppings.PEPPERONI)) {
 				totalPrice += 3.00;
 			}
-			if (toppings.equals("ITALIAN_SAUSAGE")) {
+			if (toppings.equals(Toppings.ITALIAN_SAUSAGE)) {
 				totalPrice += 3.50;
 			}
-			if (toppings.equals("CANADIAN_BACON")) {
+			if (toppings.equals(Toppings.CANADIAN_BACON)) {
 				totalPrice += 4.00;
 			}
 		}
