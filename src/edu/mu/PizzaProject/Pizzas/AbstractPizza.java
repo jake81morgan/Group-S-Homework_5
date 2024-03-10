@@ -82,6 +82,40 @@ public abstract class AbstractPizza {
 		this.cookingPrice = cookingPrice;
 	}
 	
+	protected double addToppingsToPrice(double priceWithoutToppings) {
+		totalPrice = priceWithoutToppings;
+		for(Toppings toppings : toppingList) {
+			if(toppings.equals("BELL_PEPPER")){
+				totalPrice += 1.00;
+			}
+			if(toppings.equals("BLACK_OLIVE")) {
+				totalPrice += 1.25;
+			}
+			if(toppings.equals("TOMATO") || toppings.equals("MUSHROOM")) {
+				totalPrice += 1.50;
+			}
+			if(toppings.equals("MUSHROOM")) {
+				totalPrice += 1.50;
+			}
+			if(toppings.equals("CHEESE")) {
+				totalPrice += 2.00;
+			}
+			if(toppings.equals("PINEAPPLE")) {
+				totalPrice += 2.50;
+			}
+			if(toppings.equals("PEPPERONI")) {
+				totalPrice += 3.00;
+			}
+			if(toppings.equals("ITALIAN_SAUSAGE")) {
+				totalPrice += 3.50;
+			}
+			if(toppings.equals("CANADIAN_BACON")) {
+				totalPrice += 4.00;
+			}
+		}
+		return totalPrice;
+	}
+	
 	
 	
 }
