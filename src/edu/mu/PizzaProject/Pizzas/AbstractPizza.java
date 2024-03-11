@@ -19,10 +19,9 @@ public abstract class AbstractPizza {
 	/**
 	 * TODO: Constructor for AbstractPizza class
 	 */
-	public AbstractPizza(double PriceWithoutToppings) {
-		this.priceWithoutToppings = PriceWithoutToppings;
-		this.totalPrice = PriceWithoutToppings;
+	public AbstractPizza() {
 		toppingList = new ArrayList<Toppings>();
+		this.pizzaOrderID = orderIDCounter++;
 
 	}
 
@@ -135,12 +134,19 @@ public abstract class AbstractPizza {
 	// Update price Method to add the toppings to total price
 	public double updatePizzaPrice() {
 		totalPrice = addToppingsToPrice(priceWithoutToppings);
+		if(cookingStrategy != null) {
+			totalPrice += cookingPrice;
+		}
 		return totalPrice;
 	}
 
 	// To String Method to display information
 	public String toString() {
-		return "Price without toppings: $" + priceWithoutToppings + "\nTotal price: $" + totalPrice + "\nToppings: "
-				+ toppingList;
+		return "Pizza Order ID: " + pizzaOrderID +
+                "\nToppings: " + toppingList +
+                "\nPrice without Toppings: $" + priceWithoutToppings +
+                "\nTotal Price: $" + totalPrice +
+                "\nCooking Strategy: " + cookingStrategy.getClass().getSimpleName() +
+                "\nCooking Price: $" + cookingPrice;
 	}
 }
