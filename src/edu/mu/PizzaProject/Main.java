@@ -1,5 +1,6 @@
 package edu.mu.PizzaProject;
 
+import edu.mu.PizzaProject.Enums.*;
 import edu.mu.PizzaProject.Pizzas.*;
 import edu.mu.PizzaProject.Strategies.*;
 
@@ -7,30 +8,37 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BrickOvenCookingStrategy brickOvenCookingStrategy = new BrickOvenCookingStrategy();
-		ConventionalOvenCookingStrategy ConventionalOvenCookingStrategy = new ConventionalOvenCookingStrategy();
-		MicrowaveCookingStrategy MicrowaveCookingStrategy = new MicrowaveCookingStrategy();
-		// Testing the classes
-        AbstractPizza margheritaPizza = new MargheritaPizza();
-        brickOvenCookingStrategy.cook(margheritaPizza);
-        System.out.println("Margherita Pizza:");
-        System.out.println(margheritaPizza);
+		PizzaOrder Order = new PizzaOrder();
 
-        VegetarianPizza vegetarianPizza = new VegetarianPizza();
-        MicrowaveCookingStrategy.cook(vegetarianPizza);
-        System.out.println("\nVegetarian Pizza:");
-        System.out.println(vegetarianPizza);
+		// Adds pizzas to the cart
+		Order.addPizzaToCart(PizzaType.HAWAIIAN);
+		Order.addPizzaToCart(PizzaType.VEGETARIAN);
+		Order.addPizzaToCart(PizzaType.MARGHERITA);
 
-        HawaiianPizza hawaiianPizza = new HawaiianPizza();
-        ConventionalOvenCookingStrategy.cook(hawaiianPizza);
-        System.out.println("\nHawaiian Pizza:");
-        System.out.println(hawaiianPizza);
+		// Selects cooking strategies for the pizzas in the cart
+		Order.selectCookingStrategyByPizzaOrderID(0, CookingStyleType.MICROWAVE);
+		Order.selectCookingStrategyByPizzaOrderID(1, CookingStyleType.CONVENTIONAL_OVEN);
+		Order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.CONVENTIONAL_OVEN);
 
-        SupremePizza supremePizza = new SupremePizza();
-        brickOvenCookingStrategy.cook(supremePizza);
-        System.out.println("\nSupreme Pizza:");
-        System.out.println(supremePizza);
+		// Prints pizza order cart
+		Order.printPizzaOrderCart(1);
 
+		// Prints toppings for a specific pizza order ID
+		Order.printListOfToppingsByPizzaOrderID(0);
+
+		// Add new topping to a pizza
+		Order.addNewToppingToPizza(0, Toppings.BELL_PEPPER);
+
+		// Remove topping from a pizza
+		Order.removeToppingFromPizza(1, Toppings.TOMATO);
+
+		// Attempt to checkout
+		try {
+			double totalBill = Order.checkout();
+			System.out.println("Total Bill: $" + totalBill);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }

@@ -3,8 +3,7 @@ package edu.mu.PizzaProject;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.mu.PizzaProject.Enums.CookingStyleType;
-import edu.mu.PizzaProject.Enums.Toppings;
+import edu.mu.PizzaProject.Enums.*;
 import edu.mu.PizzaProject.Pizzas.AbstractPizza;
 import edu.mu.PizzaProject.Strategies.BrickOvenCookingStrategy;
 import edu.mu.PizzaProject.Strategies.ConventionalOvenCookingStrategy;
@@ -71,7 +70,18 @@ public class PizzaOrder {
 			}
 		}
 		return null;	
+	}
+	
+	public boolean addPizzaToCart(PizzaType pizzaType) {
 		
+		AbstractPizza NewPizza = pizzaFactory.createPizza(pizzaType);
+		
+		if(NewPizza != null) {
+			pizzaOrderList.add(NewPizza);
+			return true;
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -172,7 +182,7 @@ public class PizzaOrder {
 				if(pizza.getCookingStrategy() == null) {
 					throw new Exception();
 				}
-				totalPrice = pizza.getTotalPrice();
+				totalPrice += pizza.getTotalPrice();
 			}
 		}
 		catch(Exception e) {

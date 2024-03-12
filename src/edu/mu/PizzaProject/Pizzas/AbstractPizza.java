@@ -145,8 +145,7 @@ public abstract class AbstractPizza {
 		return "Pizza Order ID: " + pizzaOrderID +
                 "\nToppings: " + toppingList +
                 "\nPrice without Toppings: $" + priceWithoutToppings +
-                "\nTotal Price: $" + totalPrice +
-                "\nCooking Strategy: " + cookingStrategy.getClass().getSimpleName() +
-                "\nCooking Price: $" + cookingPrice;
+                "\nCooking Price: $" + cookingPrice +
+                "\nTotal Price: $" + totalPrice;
 	}
 }
