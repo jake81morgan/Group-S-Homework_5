@@ -94,8 +94,11 @@ public abstract class AbstractPizza {
 	public void setCookingPrice(double cookingPrice) {
 		this.cookingPrice = cookingPrice;
 	}
-
-	// Method to go through the toppinglist and add the price to the returned value
+    /**
+     * TODO: Method to go through the toppinglist and add the price to the returned value
+     * @param priceWithoutToppings
+     * @return
+     */
 	protected double addToppingsToPrice(double priceWithoutToppings) {
 		totalPrice = priceWithoutToppings;
 		for (Toppings toppings : toppingList) {
@@ -131,7 +134,10 @@ public abstract class AbstractPizza {
 		return totalPrice;
 	}
 
-	// Update price Method to add the toppings to total price
+	/**
+	 * TODO: Update price Method to add the toppings to total price
+	 * @return
+	 */
 	public double updatePizzaPrice() {
 		totalPrice = addToppingsToPrice(priceWithoutToppings);
 		if(cookingStrategy != null) {
@@ -140,7 +146,9 @@ public abstract class AbstractPizza {
 		return totalPrice;
 	}
 
-	// To String Method to display information
+	/**
+	 * TODO:  To String Method to display information
+	 */
 	public String toString() {
 		return "Pizza Order ID: " + pizzaOrderID +
                 "\nToppings: " + toppingList +

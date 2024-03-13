@@ -13,7 +13,10 @@ public class MargheritaPizza extends AbstractPizza {
 		updatePizzaPrice();
 	}
 
-	// Copy constructor
+	/**
+	 * TODO: Copy contructor
+	 * @param pizza
+	 */
 	public MargheritaPizza(MargheritaPizza pizza) {
 		super();
 		this.toppingList = new ArrayList<>(pizza.toppingList);

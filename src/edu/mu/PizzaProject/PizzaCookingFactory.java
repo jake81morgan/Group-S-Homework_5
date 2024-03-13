@@ -5,7 +5,11 @@ import edu.mu.PizzaProject.Pizzas.*;
 
 public class PizzaCookingFactory {
 
-	
+	/**
+	 * TODO: Creates pizza based on pizzaType parameter
+	 * @param pizzaType
+	 * @return
+	 */
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		switch (pizzaType) {
 			case HAWAIIAN:
