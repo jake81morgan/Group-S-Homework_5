@@ -6,7 +6,7 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy {
 
 	@Override
 	public boolean cook(AbstractPizza pizza) {
-		// TODO Auto-generated method stub
+
 		ConventionalOvenCookingStrategy ConventionalOvenCookingStrategy = new ConventionalOvenCookingStrategy();
 		pizza.setCookingPrice(8.0);
 		pizza.setTotalPrice(pizza.getCookingPrice() + pizza.getTotalPrice());

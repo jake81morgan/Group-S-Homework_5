@@ -203,15 +203,12 @@ public class PizzaOrder {
 		
 		// Sets cooking strategy based on StyleType
 		ICookingStrategy strategy = null;
-		switch(cookingStrategyType) {
-		
-			case BRICK_OVEN:
-				strategy = new BrickOvenCookingStrategy();
-			case CONVENTIONAL_OVEN:
-				strategy = new ConventionalOvenCookingStrategy();
-			case MICROWAVE:
-				strategy = new MicrowaveCookingStrategy();
-				default: 
+		if(cookingStrategyType == CookingStyleType.BRICK_OVEN) {
+			strategy = new BrickOvenCookingStrategy();
+		} else if(cookingStrategyType == CookingStyleType.CONVENTIONAL_OVEN) {
+			strategy = new ConventionalOvenCookingStrategy();
+		} else if(cookingStrategyType == CookingStyleType.MICROWAVE) {
+			strategy = new MicrowaveCookingStrategy();
 		}
 		
 		// Searches for pizza with correct orderID
